@@ -3,6 +3,7 @@
 use App\Http\Controllers\editAboutSectionController;
 use App\Http\Controllers\editFooterController;
 use App\Http\Controllers\editHeaderController;
+use App\Http\Controllers\editHeaderSectioncontroller;
 use App\Http\Controllers\editPricingSectionController;
 use App\Http\Controllers\editServicesSectionController;
 use App\Http\Controllers\ProfileController;
@@ -35,19 +36,22 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 /*Route for displaying services section to edit */
+Route::middleware('auth')->group(function () {
 
+    Route::get('/headeredit', [editHeaderSectioncontroller::class,"index"])->name('headeredit.index');
     Route::get('/Services',[editServicesSectionController::class,'index'])->name('editServices.index');
 
     Route::get('/About',[editAboutSectionController::class,'index'])->name('editAbout.index');
     
     Route::get('/Pricing',[editPricingSectionController::class,'index'])->name('editPricing.index');
       
-    Route::get('/Header',[editHeaderController::class,'index'])->name('editHeader.index');
     
-    Route::get('/footer',[editFooterController::class,'index'])->name('editFooter.index');
+    
+    Route::get('/footeredit',[editFooterController::class,'index'])->name('editFooter.index');
+});
 
 
-
+Route::middleware('auth')->group(function () {
     Route::get('/Services/{datas}',[editServicesSectionController::class,'edit'])->name('updateServices.edit');
 
     Route::get('/About/{datas}',[editAboutSectionController::class,'edit'])->name('updateAbout.edit');
@@ -56,10 +60,12 @@ require __DIR__.'/auth.php';
       
     Route::get('/Header/{datas}',[editHeaderController::class,'edit'])->name('updateHeader.edit');
     
-    Route::get('/footer/{datas}',[editFooterController::class,'index'])->name('updateFooter.edit');
+    Route::get('/updatefooter/{datas}',[editFooterController::class,'edit'])->name('updateFooter.edit');
 
 
+});
 
+Route::middleware('auth')->group(function () {
 
     Route::post('/',[editServicesSectionController::class,'store'])->name('updateServices.store');
 
@@ -67,8 +73,8 @@ require __DIR__.'/auth.php';
     
     Route::post('/Pricing',[editPricingSectionController::class,'store'])->name('updatePricing.store');
       
-    Route::get('/Header',[editHeaderController::class,'store'])->name('updateHeader.store');
+    Route::post('/Header',[editHeaderController::class,'store'])->name('updateHeader.store');
     
-    Route::get('/footer',[editFooterController::class,'store'])->name('updateFooter.store');
+    Route::post('/footer',[editFooterController::class,'store'])->name('updateFooter.store');
     
-
+});

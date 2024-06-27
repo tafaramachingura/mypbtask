@@ -6,10 +6,11 @@
                     <!-- menu bar-->
                    <div class="row">
                        <ul class="nav navbar ">
-                          <li class="nav-link text-white"><a href="/">Home</a></li>
+                          <li class="nav-link text-white text-md text-lg text-white"> <i class="bi-bi-bandaid " style="color:#ffff !important"></i><a href="">Bussiness</a></li>
+                          <li class="nav-link text-white"><a href="">Home</a></li>
                            <li class= "nav-link text-white"><a href="#services">Services</a></li>
                            <li class="nav-link text-white"><a href="#pricing">Pricing</a></li>
-                           <li class="nav-link text-white"><a href="{{route('login')}}">Pricing</a></li>
+                           <li class="nav-link text-white"><a href="{{route('login')}}">Login</a></li>
 
 
                        </ul>
@@ -43,31 +44,34 @@
                     
                         <div class='row'>
                             <div class='col-sm-4 col-md-6 col-lg-6'>
-                                <p><img src="{{$aboutimage[0]->imagePath}}" class="img-fluid"></p>
+
+                       <p><img src="{{$aboutimage[0]->imagePath}}" class="img-fluid"></p>
                             </div>
                             <div class="col-sm-4 col-md-6 col-lg-6">
                                 <p> <i class="bi bi-dash text-primary"></i> <span>Our Story</span></p>
                                 <p> <h2><strong> Our team comes with the experience and knowledge</strong></h2></p>
-                                <ul class="nav nav-tabs" role="tablist">
-                                   <il class='nav-item' role="presentation">
-                                     <button class='nav-link active' id="us-button" data-bs-toggle='tab' data-bs-target='#us' aria-controls="us" aria-selected="true">{{$aboutdata[0]->title}}</button></il> 
-                                    
-                                   <li class='nav-item' role="presentation">
-                                    <button class='nav-link' id="vision-button" data-bs-toggle='tab' data-bs-target='#vision' aria-controls="vision">{{$aboutdata[1]->title}}</button></li>
-                                   <li class='nav-item' role="presentation"> 
-                                    <button class='nav-link' id="history-button" data-bs-toggle='tab' data-bs-target='#history' aria-controls="history">{{$aboutdata[2]->title}}</button></li>
-
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane fade show" id="us" role="tabpanel" aria-labelledby="us-button">
-                                        {{$aboutdata[0]->body}}
-                                    </div>
-                                    <div class="tab-pane fade" id="vision" role="tabpanel" aria-labelledby="vision-button">
-                                        {{$aboutdata[1]->body}}
-                                    </div>
-                                    <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-button" >
-                                        {{$aboutdata[2]->body}}
-                                    </div>
+                               
+                               
+                                <ul class="nav nav-pills bg-gray-700">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" data-toggle="tab" href="#us">{{$aboutdata[0]->title}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" data-toggle="tab" href="#vision">{{$aboutdata[1]->title}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" data-toggle="tab" href="#history">{{$aboutdata[2]->title}}</a>
+                                    </li>
+                                  </ul>
+                                  
+                                  <!-- Tab panes -->
+                                  <div class="tab-content mt-4">
+                                    <div class="tab-pane container active" id="us"> {{$aboutdata[0]->body}}</div>
+                                    <div class="tab-pane container fade" id="vision"> {{$aboutdata[1]->body}}</div>
+                                    <div class="tab-pane container fade" id="history"> {{$aboutdata[2]->body}}</div>
+                                  </div>
+                               
+                               
 
                                 </div>
                             </div>
@@ -82,7 +86,7 @@
         <div class="container-fluid mt-5">
           <div class="container">
           
-                <div class="text-center"><input type="button" class="btn btn-outline-primary btn-lg " value="Services"></div>
+                <div class="text-center"><input type="button" class="btn btn-outline-primary btn-lg " value="Services" style="border-radius:20px;"></div>
            
             <div class="row mt-5">
                 <!---- first box ---->
@@ -161,7 +165,7 @@
         <section id='pricing' class="bg-light mt-5">
             <div class="container-fluid">
                 <div class="container">
-                    <div class="text-center"><input type="button" class="btn btn-outline-primary btn-lg mt-5" value="Pricing"></div>
+                    <div class="text-center"><input type="button" class="btn btn-outline-primary btn-lg mt-5" style="border-radius:20px;" value="Pricing"></div>
            
                     <div class="row mt-5">
                         <!-- first box --->
@@ -244,6 +248,11 @@
         </div>    
         </div>    
         </section>   
-      
+     
+       
+          <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
+          <script src="{{asset('js/bootstrap.js')}}"></script>
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    
 </body>
 </html>

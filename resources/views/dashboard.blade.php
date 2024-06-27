@@ -10,6 +10,16 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
+                    <ul>
+                        <li>
+                            <a href="{{route('headeredit.index')}}"> Edit Header Section</a>
+                        
+                        </li>
+                        <li>   <a href="{{route('editPricing.index')}}" class='nav-link'> Edit Pricing Section</a></li>
+                      <li>  <a href="{{route('editAbout.index')}}" class='nav-link '> Edit About Section</a></li>
+                      <li>  <a href="{{route('editFooter.index')}}" class='nav-link'> Edit Footer Section</a></li>
+
+                    </ul>
                 </div>
             </div>
         </div>

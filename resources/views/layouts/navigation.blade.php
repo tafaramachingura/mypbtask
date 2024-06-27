@@ -1,8 +1,3 @@
-<style>
-    .nav-link a{
-        color:black;
-    }
-</style>
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,8 +15,10 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    
-
+                    <x-nav-link :href="route('headeredit.index')" :active="request()->routeIs('headeredit.index')">
+                        Edit Header
+                    </x-nav-link>
+                 
                     <x-nav-link :href="route('editServices.index')" :active="request()->routeIs('editServices.index')">
                        Edit Services
                     </x-nav-link>
@@ -31,6 +28,9 @@
                      </x-nav-link>
                      <x-nav-link :href="route('editAbout.index')" :active="request()->routeIs('editAbout.index')">
                         Edit Our Story
+                     </x-nav-link>
+                     <x-nav-link :href="route('editFooter.index')" :active="request()->routeIs('editFooter.index')">
+                        Edit Footer
                      </x-nav-link>
                      
                 </div>
